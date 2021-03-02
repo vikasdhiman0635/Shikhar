@@ -1,0 +1,88 @@
+<app-productavbar></app-productavbar>
+<br>
+<br><br><br>
+<br>
+<div class="container" *ngIf="product!=null">
+    <div class="row">
+        <div class="col-md-9 col-sm-12">
+            <div class="row">
+                <div class="col-md-5">
+                    <img [src]="product.image" alt="" width="100%">
+                </div>
+                <div class="col-md-7">
+                    <label style="font-size: 25px;">
+                        <strong>
+                            Product Name:
+                        </strong>
+                        {{product.title}}
+                    </label>
+                    <p>
+                        <strong>
+                            Price:
+                        </strong>
+                        <i class="fa fa-usd"></i> {{product.price}}
+                    </p>
+                    <p>
+                        <strong>
+                            Product Type:
+                        </strong>
+                        {{product.category}}
+                    </p>
+                    <p>
+                        <strong>
+                            Description:
+                        </strong>
+                        {{product.description}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <input type="button" value="Add To Cart" (click)="addtocart()" class="btn btn-success">
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h3>
+                More Products
+            </h3>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6" *ngFor="let data of allproducts">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <img [src]="data.image" alt="" width="70%" class="prodimg">
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="">
+                        {{data.title}}
+                    </label>
+                    <br>
+                    <p>
+                        <strong>
+                            Prize:
+                        </strong>
+                        <i class="fa fa-usd"></i> {{data.price}}
+                    </p>
+                    <p>
+                        <strong>
+                            Product Type:
+                        </strong>
+                        {{data.category}}
+                    </p>
+                    <br>
+                    <input type="button" value="view details" (click)="getdetsils(data.id)" class="btn btn-primary float-right">
+                </div>
+            </div>
+            <br>
+        </div>
+    </div>
+</div>

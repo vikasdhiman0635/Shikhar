@@ -1,0 +1,70 @@
+<app-nav-bar></app-nav-bar>
+
+<br>
+<br>
+<br>
+<br>
+<br>
+<div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                All Products
+            </h2>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-12 text-right">
+            <h3>Filter</h3>
+            <div class="row">
+                <div class="col-md-3 col-sm-6"></div>
+                <div class="col-md-3 col-sm-6"></div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <input type="text" placeholder="Enter Product name" [(ngModel)]="productname" class="form-control">
+                    </div>
+                </div>
+                <div class="col-md-3 col-sm-6">
+                    <div class="form-group">
+                        <select class="form-control" [(ngModel)]="producttype">
+                            <option>--select product type--</option>
+                            <option *ngFor="let data of allcategory">{{data}}</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <br>
+    <div class="row">
+        <div class="col-md-6 col-sm-12" *ngFor="let data of allproducts | filter:'title' : productname | filter : 'category' : producttype">
+            <div class="row">
+                <div class="col-md-6 col-sm-6">
+                    <img [src]="data.image" alt="" width="70%" class="prodimg">
+                </div>
+                <div class="col-md-6 col-sm-6">
+                    <label for="">
+                        {{data.title}}
+                    </label>
+                    <br>
+                    <p>
+                        <strong>
+                            Prize:
+                        </strong>
+                        <i class="fa fa-usd"></i> {{data.price}}
+                    </p>
+                    <p>
+                        <strong>
+                            Product Type:
+                        </strong>
+                        {{data.category}}
+                    </p>
+                    <br>
+                    <input type="button" value="view details" (click)="getdetsils(data.id)" class="btn btn-primary float-right">
+                </div>
+            </div>
+            <br>
+            <br>
+        </div>
+    </div>
+</div>

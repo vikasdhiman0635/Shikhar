@@ -1,0 +1,57 @@
+<app-productavbar></app-productavbar>
+<br>
+<br><br>
+<br><br>
+<div class="container" *ngIf="data!=null">
+    <div class="row">
+        <div class="col-md-12">
+            <h2>
+                My Cart
+            </h2>
+        </div>
+    </div>
+    <br>
+    
+    <div class="row">
+        <div class="col-md-12" *ngFor="let data of data">
+            <div class="row">
+                <div class="col-md-5">
+                    <img [src]="data.image" alt="" width="80%">
+                </div>
+                <div class="col-md-7">
+                    <label style="font-size: 25px;">
+                        <strong>
+                            Product Name:
+                        </strong>
+                        {{data.title}}
+                    </label>
+                    <p>
+                        <strong>
+                            Price:
+                        </strong>
+                        <i class="fa fa-usd"></i> {{data.price}}
+                    </p>
+                    <p>
+                        <strong>
+                            Product Type:
+                        </strong>
+                        {{data.category}}
+                    </p>
+                    <p>
+                        <strong>
+                            Description:
+                        </strong>
+                        {{data.description}}
+                    </p>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-md-12 text-right">
+                    <input type="button" value="Remove" class="btn btn-danger" (click)="remove(data.id)">
+                </div>
+            </div>
+            <br>
+            <hr/>
+        </div>
+    </div>
+</div>
